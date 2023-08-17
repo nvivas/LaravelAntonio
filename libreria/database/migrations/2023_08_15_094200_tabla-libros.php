@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('autor');
-            $table->year('año_publicación');
-            $table->string('género');
+            $table->year('ano_publicacion');
+            $table->string('genero');
             $table->boolean('disponible')->default(true);
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('libros');
     }
 };

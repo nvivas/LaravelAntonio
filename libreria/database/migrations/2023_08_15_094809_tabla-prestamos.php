@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');             $table->unsignedBigInteger('book_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('book_id');
             $table->date('fecha_prestamo');
             $table->date('fecha_devolucion');
             $table->timestamps();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('prestamos');
     }
 };
