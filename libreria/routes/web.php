@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/addLibro', [LibroController::class, 'addLibro']);
+Route::get('/modificarLibro', [LibroController::class, 'updateLibro']);
+Route::get('/eliminarLibro', [LibroController::class, 'deleteLibro']);
+Route::get('/mostrarFormulario', [LibroController::class, 'showFormularioAddLibro']);
+Route::post('/mostrarFormulario', [LibroController::class, 'showFormularioAddLibro']);

@@ -44,6 +44,18 @@ class Libro extends Model
         $libro->save();
     }
 
+    public static function updated($id) {
+        $libro = Libro::find($id);
+        $libro->titulo = "El libro negro de la horas";
+        $libro->save();
+    }
+
+    public static function destroy($ids)
+    {
+        $libro = Libro::find($ids);
+        $libro->delete();
+    }
+
 
 
 

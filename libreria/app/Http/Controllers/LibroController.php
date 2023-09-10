@@ -16,4 +16,20 @@ class LibroController extends Controller
 
         Libro::create($titulo, $autor, $ano_publicacion, $genero, $disponible);
     }
+
+    public function updateLibro() {
+        Libro::updated(1);
+    }
+
+    public function deleteLibro()
+    {
+        Libro::destroy(1);
+    }
+
+    public function showFormularioAddLibro() {
+        return view("addLibro_formulario");
+    }
+
+    // me he quedado en el minuto 19:19
+
 }
