@@ -7,15 +7,6 @@ use App\Models\Libro;
 
 class LibroController extends Controller
 {
-    public function addLibro() {
-        $titulo = "El silencio de la ciudad blanca";
-        $autor = "Eva García Sáenz de Urturi";
-        $ano_publicacion = 2016;
-        $genero = "Suspense";
-        $disponible = true;
-
-        Libro::create($titulo, $autor, $ano_publicacion, $genero, $disponible);
-    }
 
     public function updateLibro() {
         Libro::updated(1);
@@ -27,9 +18,13 @@ class LibroController extends Controller
     }
 
     public function showFormularioAddLibro() {
-        return view("addLibro_formulario");
+        $titulo = 'Añadir Libro';
+        return view("addLibro_formulario", compact('titulo'));
     }
 
-    // me he quedado en el minuto 19:19
-
+    public function addLibroFormulario(Request $request)
+    {
+        $id_libro = Libro::create($request);
+        return view('addLibroOk_Formulario');
+    }
 }

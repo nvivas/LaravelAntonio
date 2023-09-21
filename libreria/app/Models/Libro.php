@@ -12,41 +12,25 @@ class Libro extends Model
 {
     use HasFactory;
 
-    /*
-    public function create(Request $request) {
-        $libro = new Libro();
-        // Se puede poner así también, asociandolo al html
-        // $libro -> titulo = $request->input('titulo');
-
-        // La manera correcta de ponerlo es esta, pero la anterior también estaría bien
-        $libro -> titulo = $request -> titulo;
-        $libro -> autor = $request -> autor;
-        $libro -> ano_publicacion = $request -> ano_publicacion;
-        $libro -> genero = $request -> genero;
-        $libro -> disponible = $request -> disponible;
-
-        // save
-        $libro ->save();
-    }
-    */
-
-    public static function create($titulo, $autor, $ano_publicacion, $genero, $disponible)
+public static function create(Request $request)
     {
         $libro = new Libro();
-
-        $libro->titulo = $titulo;
-        $libro->autor = $autor;
-        $libro->ano_publicacion = $ano_publicacion;
-        $libro->genero = $genero;
-        $libro->disponible = $disponible;
-
-        // save
+        $libro->titulo = $request->input('titulo');
+        $libro->autor = $request->input('autor');
+        $libro->genero = $request->input('genero');
+        $libro->disponible = $request->input('disponible');
+        $libro->ano_publicacion = $request->input('ano_publicacion');
         $libro->save();
     }
 
-    public static function updated($id) {
+    public static function uptatedID($id, Request $request)
+    {
         $libro = Libro::find($id);
-        $libro->titulo = "El libro negro de la horas";
+        $libro->titulo = $request->input('titulo');
+        $libro->autor = $request->input('autor');
+        $libro->genero = $request->input('genero');
+        $libro->disponible = $request->input('disponible');
+        $libro->ano_publicacion = $request->input('ano_publicacion');
         $libro->save();
     }
 
