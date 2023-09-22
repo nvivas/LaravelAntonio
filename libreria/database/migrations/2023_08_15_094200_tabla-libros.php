@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('autor');
             $table->year('ano_publicacion');
             $table->string('genero');
-            $table->boolean('disponible')->default(true);
+            $table->integer('disponible')->default(1);
         });
     }
 
