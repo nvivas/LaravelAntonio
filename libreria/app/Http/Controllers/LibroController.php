@@ -22,9 +22,12 @@ class LibroController extends Controller
         return view("addLibro_formulario", compact('titulo'));
     }
 
-    public function addLibroFormulario(Request $request)
-    {
+    public function addLibroFormulario(Request $request) {
         $id_libro = Libro::create($request);
-        return view('addLibroOk_Formulario');
+        return view('addLibroOk_Formulario', ['id' => $id_libro] );
+    }
+    public function verLibro() {
+        $libro = Libro::allLibros();
+        return view('mostrarLibros_formulario') -> with('libros', $libro);
     }
 }

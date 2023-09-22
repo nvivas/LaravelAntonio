@@ -20,7 +20,7 @@
         <input type="text" name="genero">
 
         <label for="">Disponible:</label>
-        <input type="checkbox" name="disponible">
+        <input type="checkbox" name="disponible" checked>
 
         <input type="submit" value="Enviar datos">
     </form>

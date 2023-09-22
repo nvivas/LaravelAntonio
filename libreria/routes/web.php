@@ -14,4 +14,5 @@ Route::get('/eliminarLibro', [LibroController::class, 'deleteLibro']);
 Route::get('/mostrarFormulario', [LibroController::class, 'showFormularioAddLibro']);
 
 Route::post('/addLibro', [LibroController::class, 'addLibroFormulario']) ->name('addLibro');
+Route::get('/mostrarLibros', [LibroController::class, 'verLibro']) ->name('verLibro');
 

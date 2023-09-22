@@ -21,6 +21,8 @@ public static function create(Request $request)
         $libro->disponible = $request->input('disponible');
         $libro->ano_publicacion = $request->input('ano_publicacion');
         $libro->save();
+
+        return $libro->id;
     }
 
     public static function uptatedID($id, Request $request)
@@ -40,8 +42,8 @@ public static function create(Request $request)
         $libro->delete();
     }
 
-
-
-
+    public static function allLibros() {
+        return Libro::all();
+    }
 
 }
