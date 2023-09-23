@@ -29,17 +29,13 @@ class UserController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Crea el usuario en la base de datos
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
-        // Autentica al usuario
         auth()->login($user);
-
-        // Redirige a una página de bienvenida o a donde lo necesites
         return redirect('/dashboard');
     }
 
