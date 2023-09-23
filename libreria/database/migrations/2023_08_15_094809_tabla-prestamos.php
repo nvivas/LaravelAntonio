@@ -9,8 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->foreign('book_id')->references('id')->on('libros');
         });
     }
-
 
     /**
      * Reverse the migrations.

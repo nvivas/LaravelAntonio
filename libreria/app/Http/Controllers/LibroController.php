@@ -30,4 +30,10 @@ class LibroController extends Controller
         $libro = Libro::allLibros();
         return view('mostrarLibros_formulario') -> with('libros', $libro);
     }
+
+    public function solicitarPrestamo($libroId)
+    {
+        return redirect('/solicitarOk')->with('success', 'Solicitud de préstamo enviada.');
+    }
+
 }
